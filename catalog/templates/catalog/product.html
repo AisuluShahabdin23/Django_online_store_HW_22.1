@@ -1,0 +1,27 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+{% load mediapath_tag %}
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-5">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-3 font-weight-normal">{{ product.name }} </h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled ">
+                        <img src="{% mediapath product.photo %}" style="width: 50%;"/>
+                        <li> Описание: {{product.description}} </li>
+                        <li> Категория: {{product.category}} </li>
+                        <li> Цена: {{product.price}} тенге за кг </li>
+                        <li> Дата создания: {{product.creation_date}} </li>
+                    </ul>
+                    <button type="button" class="btn btn-block btn-outline-primary">Купить</button>
+                    <button type="button" class="btn btn-block btn-outline-primary">Назад</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

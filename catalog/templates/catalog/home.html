@@ -1,0 +1,28 @@
+{% extends 'catalog/base.html' %}
+{% load mediapath_tag %}
+{% block content %}
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Magnum</h1>
+        <p class="lead">Magnum - это крупнейшая торгово-розничная сеть Казахстана.
+            Основной деятельностью является реализация товаров широкого потребления.</p>
+    </div>
+
+        <div class="container mt-5">
+            <div class="row text-center">
+                {% for object in object_list %}
+                    <div class="col-3 mt-2">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                {{ object.name }}
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-text">{{ object.description|truncatechars:100 }}</h3>
+                                <a class="p-2 btn btn-outline-primary"  href="/product/{{ object.pk }}">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}
